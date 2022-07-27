@@ -4,3 +4,4 @@ twig-cache
 assets/libs
 /assets/libs/
 /composer.lock
+/yarn.lock
