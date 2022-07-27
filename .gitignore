@@ -1,3 +1,5 @@
 sessions
 vendor
 twig-cache
+assets/libs
+/assets/libs/

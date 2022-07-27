@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Ta&amp;Ta - {% block naslov %}Pocetna{% endblock %}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ BASE }}assets/css/main.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="banners">
+                <a href="{{ BASE }}" class="banner">
+                    <img src="{{ BASE }}assets/img/banner-1.jpg" alt="Banner 1">
+                </a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="{{ BASE }}assets/img/linkedin.png" alt="Li"></a>
+                <a href="#"><img src="{{ BASE }}assets/img/facebook.png" alt="Fb"></a>
+                <a href="#"><img src="{{ BASE }}assets/img/twitter.png" alt="Tw"></a>
+                <a href="#"><img src="{{ BASE }}assets/img/youtube.png" alt="YT"></a>
+            </div>
+            <div class="search-box">
+                <form method="post" action="{{ BASE }}search">
+                    <input type="text" name="q" placeholder="Ključne reči pretrage">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <nav id="main-menu">
+                <ul>
+                    <li><a href="{{ BASE }}">Pocetna</a>
+                    <li><a href="{{ BASE }}categories">Kategorije</a>
+                    <li><a href="{{ BASE }}profile">Profil</a>
+                    <li><a href="{{ BASE }}contact">Kontakt</a>
+                    <li><a href="{{ BASE }}log-out">Odjava</a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+
+        <div class="bookmarks">Loading bookmarks...</div>
+
+        <footer class="site-footer">
+            &copy; 2018 - Aukcijska kuca Ta&amp;Ta
+        </footer>
+
+        <script>const BASE = '{{ BASE }}';</script>
+        <script src="{{ BASE }}assets/js/bookmark.js"></script>
+    </body>
+</html>
