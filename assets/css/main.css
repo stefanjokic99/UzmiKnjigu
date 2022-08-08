@@ -240,7 +240,6 @@ footer {
     color: blue;
     border-top: 2px solid #cccccc;
     background-color: rgba(204, 204, 204, 0.1);
-    position: fixed;
     width: 100%;
     bottom: 0;
 }

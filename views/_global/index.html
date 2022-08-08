@@ -6,9 +6,14 @@
         <link rel="stylesheet" href="{{ BASE }}assets/libs/bootstrap-icons/font/bootstrap-icons.css">
 
         <link rel="stylesheet" href="{{ BASE }}assets/css/main.css">
+        {% block css %}
+        {% endblock %}
 
         <!-- Global script -->
         <script type="text/javascript" src="{{ BASE }}assets/libs/jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript">
+            {% block embedded_js %}{% endblock %}
+        </script>
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,8 +40,11 @@
             <!-- Copyright -->
         </footer>
 
-        <script>const BASE = '{{ BASE }}';</script>
-        <script src="{{ BASE }}assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>
+            const BASE = '{{ BASE }}';
+            let data_session = '{{ data }}';
+        </script>
+        <script src="{{ BASE }}assets/libs/bootstrap/dist/js/bootstrap.bundle.js"></script>
         {% block scripts %}{% endblock %}
     </body>
 </html>
