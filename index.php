@@ -57,11 +57,11 @@
 		exit;
 	}
 
-	$loader = new Twig_Loader_Filesystem("./views");
-	$twig = new Twig_Environment($loader, [
-		"cache" => "./twig-cache",
-		"auto_reload" => true
-	]);
+    $loader = new \Twig\Loader\FilesystemLoader('./views');
+    $twig = new \Twig\Environment($loader, [
+    "cache" => "./twig-cache",
+    "auto_reload" => true
+    ]);
 
 	$data['BASE'] = Configuration::BASE;
 

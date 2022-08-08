@@ -5,11 +5,6 @@
         App\Core\Route::get('|^user/login/?$|',                     'Main',                   'getLogin'),
         App\Core\Route::post('|^user/login/?$|',                    'Main',                   'postLogin'),
 
-        App\Core\Route::get('|^category/([0-9]+)/?$|',              'Category',               'show'),
-        App\Core\Route::get('|^category/([0-9]+)/delete/?$|',       'Category',               'delete'),
-
-        App\Core\Route::get('|^auction/([0-9]+)/?$|',               'Auction',                'show'),
-
         # API rute:
         App\Core\Route::get('|^api/auction/([0-9]+)/?$|',           'ApiAuction',             'show'),
         App\Core\Route::get('|^api/bookmarks/?$|',                  'ApiBookmark',            'getBookmarks'),

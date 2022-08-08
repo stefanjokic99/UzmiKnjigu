@@ -1,51 +1,42 @@
 <!doctype html>
 <html>
     <head>
-        <title>Ta&amp;Ta - {% block naslov %}Pocetna{% endblock %}</title>
-        <meta charset="utf-8">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="{{ BASE }}assets/libs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="{{ BASE }}assets/libs/bootstrap-icons/font/bootstrap-icons.css">
+
         <link rel="stylesheet" href="{{ BASE }}assets/css/main.css">
+
+        <!-- Global script -->
+        <script type="text/javascript" src="{{ BASE }}assets/libs/jquery/dist/jquery.min.js"></script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>UzmiKnjigu - {% block naslov %}Pocetna{% endblock %}</title>
+
     </head>
     <body>
-        <header class="site-header">
-            <div class="banners">
-                <a href="{{ BASE }}" class="banner">
-                    <img src="{{ BASE }}assets/img/banner-1.jpg" alt="Banner 1">
-                </a>
-            </div>
-            <div class="social-icons">
-                <a href="#"><img src="{{ BASE }}assets/img/linkedin.png" alt="Li"></a>
-                <a href="#"><img src="{{ BASE }}assets/img/facebook.png" alt="Fb"></a>
-                <a href="#"><img src="{{ BASE }}assets/img/twitter.png" alt="Tw"></a>
-                <a href="#"><img src="{{ BASE }}assets/img/youtube.png" alt="YT"></a>
-            </div>
-            <div class="search-box">
-                <form method="post" action="{{ BASE }}search">
-                    <input type="text" name="q" placeholder="Ključne reči pretrage">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-            <nav id="main-menu">
-                <ul>
-                    <li><a href="{{ BASE }}">Pocetna</a>
-                    <li><a href="{{ BASE }}categories">Kategorije</a>
-                    <li><a href="{{ BASE }}profile">Profil</a>
-                    <li><a href="{{ BASE }}contact">Kontakt</a>
-                    <li><a href="{{ BASE }}log-out">Odjava</a>
-                </ul>
-            </nav>
+        <header>
+            {% block header %}
+            {% endblock %}
         </header>
         <main>
             {% block main %}
             {% endblock %}
         </main>
 
-        <div class="bookmarks">Loading bookmarks...</div>
-
-        <footer class="site-footer">
-            &copy; 2018 - Aukcijska kuca Ta&amp;Ta
+        <footer class="bg-light text-center text-lg-start">
+            <!-- Copyright -->
+            <div class="text-center p-3">
+                © 2022 Danijela & Stefan <br>
+                Internet tehnologije i programiranje
+            </div>
+            <!-- Copyright -->
         </footer>
 
         <script>const BASE = '{{ BASE }}';</script>
-        <script src="{{ BASE }}assets/js/bookmark.js"></script>
+        <script src="{{ BASE }}assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        {% block scripts %}{% endblock %}
     </body>
 </html>
