@@ -1,9 +1,14 @@
 {% extends "_global/index.html" %}
 {% block naslov %}Login{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ BASE }}assets/css/slider.css" />
+<link rel="stylesheet" href="{{ BASE }}assets/css/card.css">
+{% endblock %}
+
 {% block header %}
 <div>
-    <p class="reg-text">Nemate nalog? <a href="signUp.html">Registrujte se</a> </p>
-    <img src="{{ BASE }}assets/img/pocetniLogo0.png" class="img-fluid img-logo"></img>
+    <p class="reg-text">Nemate nalog? <a href="user/register">Registrujte se</a> </p>
+    <img src="{{ BASE }}assets/img/pocetniLogo0.png" class="img-fluid img-logo"/>
 </div>
 {% endblock %}
 {% block main %}
