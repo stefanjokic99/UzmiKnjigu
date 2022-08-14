@@ -59,7 +59,7 @@
 
     $loader = new \Twig\Loader\FilesystemLoader('./views');
     $twig = new \Twig\Environment($loader, [
-    "cache" => "false",
+    "cache" => "twig-cache",
     "auto_reload" => true
     ]);
 
