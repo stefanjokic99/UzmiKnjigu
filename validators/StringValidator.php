@@ -9,7 +9,7 @@
 
         public function __construct() {
             $this->minLength = 0;
-            $this->maxLength = 255;
+            $this->maxLength = 45;
         }
 
         public function &setMinLength(int $length) : StringValidator {
