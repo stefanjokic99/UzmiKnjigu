@@ -12,7 +12,7 @@
         public function __construct() {
             $this->isSigned         = false;
             $this->isReal           = false;
-            $this->integerLength    = 10;
+            $this->integerLength    = 11;
             $this->maxDecimalDigits = 0;
         }
 
