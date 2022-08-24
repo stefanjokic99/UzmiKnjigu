@@ -4,6 +4,7 @@
         App\Core\Route::post('|^user/register/?$|',                 'Main',                   'postRegister'),
         App\Core\Route::get('|^user/login/?$|',                     'Main',                   'getLogin'),
         App\Core\Route::post('|^user/login/?$|',                    'Main',                   'postLogin'),
+        App\Core\Route::get('|^user/logout/?$|',                    'Main',                   'getLogout'),
 
         # API rute:
         App\Core\Route::get('|^api/auction/([0-9]+)/?$|',           'ApiAuction',             'show'),

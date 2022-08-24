@@ -12,17 +12,31 @@ $(document).ready(function() {
 });
 {% endblock %}
 {% block profile %}
-<div>
-    <div class="reg-text">
-        <a href="user/register">Registrujte se</a>
-        /
-        <a href="user/login">Prijavite se</a>
+{% if userId %}
+    <div>
+        <div class="reg-text">
+            <a href="/user/logout">Odjavite se</a>
 
-        <img src="{{ BASE }}assets/img/avatar.png" class="image-avatar">
+            <a href="/user/profile" title="{{userForename}} {{userSurname}}">
+                <img src="{{ BASE }}assets/img/avatar.png" class="image-avatar">
+            </a>
+        </div>
+
+        <img src="Assets/img/pocetniLogo0.png" class="img-fluid" />
     </div>
+{% else %}
+    <div>
+        <div class="reg-text">
+            <a href="/user/register">Registrujte se</a>
+            /
+            <a href="/user/login">Prijavite se</a>
 
-    <img src="Assets/img/pocetniLogo0.png" class="img-fluid" />
-</div>
+            <img src="{{ BASE }}assets/img/avatar.png" class="image-avatar">
+        </div>
+
+        <img src="Assets/img/pocetniLogo0.png" class="img-fluid" />
+    </div>
+{% endif %}
 {% endblock %}
 {% block main %}
 <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">

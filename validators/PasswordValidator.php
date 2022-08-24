@@ -27,7 +27,7 @@ class PasswordValidator implements Validator
 
     public function isValid(string $value): bool
     {
-        $pattern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{'.$this->minLength.','.$this->maxLength.'}$/;';
+        $pattern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{'.$this->minLength.','.$this->maxLength.'}$/';
 
         return \boolval(\preg_match($pattern, $value));
     }

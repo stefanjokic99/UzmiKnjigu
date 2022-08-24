@@ -1,26 +1,40 @@
 {% extends "_global/index.html" %}
 {% block naslov %}Login{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{{ BASE }}assets/css/slider.css" />
-<link rel="stylesheet" href="{{ BASE }}assets/css/card.css">
 {% endblock %}
-
+{% block embedded_js %}
+$(document).ready(function() {
+$('#sign-up').click(function() {document.forms[0].submit();});
+});
+{% endblock %}
 {% block header %}
 <div>
-    <p class="reg-text">Nemate nalog? <a href="user/register">Registrujte se</a> </p>
+    <p class="reg-text">Nemate nalog? <a href="/user/register">Registrujte se</a> </p>
     <img src="{{ BASE }}assets/img/pocetniLogo0.png" class="img-fluid img-logo"/>
 </div>
 {% endblock %}
 {% block main %}
+{% if message %}
+<div class="alert alert-danger alert-dismissible m-3">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Greška prilikom prijave!</strong> {{ message }}
+</div>
+{% endif %}
+{% if messageSuccessfull %}
+<div class="alert alert-success alert-dismissible m-3">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Registracija uspješna!</strong> {{ messageSuccessfull }}
+</div>
+{% endif %}
 <p class="title" >Prijavite se</p>
 
 <div class="container">
     <div class="row">
-        <form action="/action.php" method="post" class="sign-up-form col-md-5 col-sm-12 col-xs-12">
+        <form action="/user/login" method="post" class="sign-up-form col-md-5 col-sm-12 col-xs-12">
             <div class="form-row">
                 <div class="col-12">
                     <div class="form-floating form-group">
-                        <input type="text" class="form-control" id="email" placeholder="E-mail" required>
+                        <input type="text" name="email" class="form-control" id="email" placeholder="E-mail" required>
                         <label class="input-label" for="email">E-mail</label>
                     </div>
                 </div>
@@ -28,7 +42,7 @@
             <div class="form-row">
                 <div class="col-10">
                     <div class="form-floating form-group">
-                        <input type="password" class="form-control pr-password" id="password" placeholder="Lozinka" required>
+                        <input type="password" name="password" class="form-control pr-password" id="password" placeholder="Lozinka" required>
                         <label class="input-label" for="password">Lozinka</label>
                     </div>
                 </div>
@@ -72,4 +86,5 @@
 {% block scripts %}
 <script type="text/javascript" src="{{ BASE }}assets/js/responsiveFormHelper.js"></script>
 <script type="text/javascript" src="{{ BASE }}assets/js/togglePassword.js"></script>
+
 {% endblock %}
