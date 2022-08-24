@@ -5,7 +5,7 @@
         const DATABASE_HOST = 'localhost';
         const DATABASE_USER = 'root';
         const DATABASE_PASS = '';
-        const DATABASE_NAME = 'uzmiknjigu_project';
+        const DATABASE_NAME = 'bookstore';
 
         const SESSION_STORAGE = '\\App\\Core\\Session\\FileSessionStorage';
         const SESSION_STORAGE_DATA = [ './sessions/' ];

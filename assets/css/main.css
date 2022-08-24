@@ -350,6 +350,10 @@ label {
     margin-bottom: 0.5rem;
 }
 
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+    display: none;
+}
 @media only screen and (max-width: 767px) {
 	body {
 		width: 100%;
