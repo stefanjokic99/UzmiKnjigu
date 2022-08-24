@@ -1,3 +1,4 @@
+.idea
 sessions/*
 vendor
 twig-cache
