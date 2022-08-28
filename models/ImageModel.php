@@ -12,7 +12,7 @@ class ImageModel extends Model
     {
         return [
             'image_id'  =>new Field(new NumberValidator(), false),
-            'book_id'   =>new Field(new NumberValidator(),false),
+            'book_id'   =>new Field(new NumberValidator(),true),
             'image_url' =>new Field((new StringValidator())->setMaxLength(45))
         ];
     }

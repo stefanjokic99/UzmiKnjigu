@@ -11,18 +11,18 @@ class BookModel extends Model
     {
         return [
             'book_id'           => new Field(new NumberValidator(), false),
-            'author_id'         => new Field(new NumberValidator(), false),
-            'publisher_id'      => new Field(new NumberValidator(), false),
-            'title_id'          => new Field(new NumberValidator(), false),
-            'user_id'           => new Field(new NumberValidator(), false),
-            'state_id'          => new Field(new NumberValidator(), false),
+            'author_id'         => new Field(new NumberValidator(), true),
+            'publisher_id'      => new Field(new NumberValidator(), true),
+            'title_id'          => new Field(new NumberValidator(), true),
+            'user_id'           => new Field(new NumberValidator(), true),
+            'state_id'          => new Field(new NumberValidator(), true),
             'status_id'         => new Field(new NumberValidator(), true),
             'price'             => new Field((new NumberValidator())->setDecimal()
                                                                     ->setUnsigned()
                                                                     ->setIntegerLength(10)
                                                                     ->setMaxDecimalDigits(2)),
-            'publishing_year'   => new Field(new NumberValidator(), false),
-            'pages_id'          => new Field(new NumberValidator(), false)
+            'publishing_year'   => new Field(new NumberValidator(), true),
+            'pages'          => new Field(new NumberValidator(), true)
 
         ];
     }

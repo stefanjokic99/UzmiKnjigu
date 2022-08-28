@@ -19,8 +19,8 @@ class TitleModel extends Model
         ];
     }
 
-    public function getAllByTitleId(int $titleId): array
+    public function getAllByCategoryId(int $categoryId): array
     {
-        return $this->getAllByFieldName('title_id', $titleId);
+        return $this->getAllByFieldName('category_id', $categoryId);
     }
 }

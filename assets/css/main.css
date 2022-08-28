@@ -79,7 +79,7 @@ html, body {
     border-bottom: 2px solid #cccccc;
     float:none;
 }
-.reg-text a{
+.reg-text > a{
     text-decoration: none;
     padding-right: 5px;
     color: blue;
