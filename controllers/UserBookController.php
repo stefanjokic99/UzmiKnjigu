@@ -36,6 +36,7 @@ class UserBookController extends UserRoleController {
         $this->set('states', $states);
 
     }
+    //TODO: Insert security measures
     public function postAddBook() {
         $addData = [
             'author_id'          => \filter_input(INPUT_POST, 'author', FILTER_SANITIZE_STRING),
