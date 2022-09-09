@@ -156,4 +156,16 @@
             $prep = $this->dbc->getConnection()->prepare($sql);
             return $prep->execute([$id]);
         }
+
+        final public function getCertainRows(int $limit, int $offset): array {
+            $tableName = $this->getTableName();
+            $sql = 'SELECT * FROM ' . $tableName . ' LIMIT '. $limit .' OFFSET '. $offset .';';
+            $prep = $this->dbc->getConnection()->prepare($sql);
+            $res = $prep->execute();
+            $items = [];
+            if ($res) {
+                $items = $prep->fetchAll(\PDO::FETCH_OBJ);
+            }
+            return $items;
+        }
     }

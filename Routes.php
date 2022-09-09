@@ -8,6 +8,7 @@
 
         # API rute:
         App\Core\Route::get('|^api/title/([0-9]+)/?$|',           'ApiTitle',             'getTitleByCategoryId'),
+        App\Core\Route::get('|^api/books/([0-9]+)/?$|',       'ApiBook',              'getBooksByPageNumber'),
         App\Core\Route::get('|^api/bookmarks/?$|',                  'ApiBookmark',            'getBookmarks'),
         App\Core\Route::get('|^api/bookmarks/add/([0-9]+)/?$|',     'ApiBookmark',            'addBookmark'),
         App\Core\Route::get('|^api/bookmarks/clear/?$|',            'ApiBookmark',            'clear'),
