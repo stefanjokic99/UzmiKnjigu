@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use function Sodium\add;
-
 class ApiBookController extends \App\Core\ApiController
 {
     public function getBooksByPageNumber($pageNumber)
@@ -11,8 +9,8 @@ class ApiBookController extends \App\Core\ApiController
         $bookModel = new \App\Models\BookModel($this->getDatabaseConnection());
         $titleModel = new \App\Models\TitleModel($this->getDatabaseConnection());
         $imageModel = new \App\Models\ImageModel($this->getDatabaseConnection());
+        $categoryModel = new \App\Models\CategoryModel($this->getDatabaseConnection());
 
-        $booksApi = [];
         $books = ($bookModel) ->getCertainRows(10,($pageNumber-1)*10);
 
         foreach($books as $book) {
@@ -20,13 +18,17 @@ class ApiBookController extends \App\Core\ApiController
             $title  = ($titleModel)->getById($book->title_id);
             $titleName = ($title)->title_name;
             $images = ($imageModel)->getByFieldName('book_id',$book->book_id);
-            $image = $images[0];
+            $image = $images->image_url;
+
+            $category = ($categoryModel)->getById($title->category_id);
+            $categoryName = ($category)->category_name;
 
             $bookApi = [
-                "price" => $price,
-                "image" => $image,
-                "title" => $titleName,
-                "id" => $book->book_id
+                "price"     => $price,
+                "image"     => $image,
+                "title"     => $titleName,
+                "id"        => $book->book_id,
+                "category"  => $categoryName
             ];
 
             $booksApi[] = array($bookApi);

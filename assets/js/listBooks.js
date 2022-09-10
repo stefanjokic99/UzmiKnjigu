@@ -54,11 +54,11 @@ function generateBookList(list) {
         for (book of list) {
             items +=
                 `<div class="col">
-                <div class="card h-100 shadow-sm"> <img src="${book[0].image}" class="card-img-top" loading="lazy" alt="...">
+                <div class="card h-100 shadow-sm"> <img src="/assets/uploads/${book[0].image}" class="card-img-top" loading="lazy" alt="...">
                     <div class="card-body">
-                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">Prvi razred</span> <span class="float-end price-hp">${book[0].price} $</span> </div>
+                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">${book[0].category}</span> <span class="float-end price-hp">${book[0].price} $</span> </div>
                         <h5 class="card-title">${book[0].title}</h5>
-                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Detaljnije</a> </div>
+                        <div class="text-center my-4"> <a href="/book/${book[0].id}" class="btn btn-warning">Detaljnije</a> </div>
                     </div>
                 </div>
             </div>`;

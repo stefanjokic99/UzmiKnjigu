@@ -5,14 +5,14 @@ jQuery(document).ready(function($) {
     $(document).ready(function() {
             if ($(window).width() < 769) {
                 $(`<button id="nav-cart" class="navbar-toggler" type="button">
-                  <img src="Assets/img/ShoppingCartNav.png"/>
+                  <img src="${BASE}assets/img/ShoppingCartNav.png"/>
                   <span id="number-of-items">10</span>
                 </button>`).appendTo($("nav>div").first());
             };
             if ($(window).width() > 769) {
                 $(`<div id="cart">
                     <a  href="#">
-                      <img src="Assets/img/ShoppingCartPC.png" />
+                      <img src="${BASE}assets/img/ShoppingCartPC.png" />
                     </a>
                     <div>
                       <div><span id="number-of-items">3</span> stavke</div>

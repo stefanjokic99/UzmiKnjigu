@@ -50,10 +50,10 @@ class MainController extends Controller {
 
         $userId = $userModel->add([
             'email'         => $email,
-            'first_name'      => $forename,
-            'last_name'       => $surname,
-            'password' => $passwordHash,
-            'user_type' => 2
+            'first_name'    => $forename,
+            'last_name'     => $surname,
+            'password'      => $passwordHash,
+            'user_type'     => 2
         ]);
 
         if (!$userId) {
