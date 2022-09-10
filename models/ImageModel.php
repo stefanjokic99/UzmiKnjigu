@@ -21,4 +21,9 @@ class ImageModel extends Model
     {
         return $this->getAllByFieldName('image_id', $imageId);
     }
+
+    public function getAllBookId(int $bookId): array
+    {
+        return $this->getAllByFieldName('book_id', $bookId);
+    }
 }
