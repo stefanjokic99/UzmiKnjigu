@@ -16,7 +16,7 @@
             return $this->dbc->getConnection();
         }
 
-        final private function getTableName(): string {
+        private function getTableName(): string {
             $matches = [];
             preg_match('|^.*\\\((?:[A-Z][a-z]+)+)Model$|', static::class, $matches);
             return substr(strtolower(preg_replace('|[A-Z]|', '_$0', $matches[1] ?? '')), 1);
@@ -46,7 +46,7 @@
             return $items;
         }
 
-        final private function isFieldValueValid(string $fieldName, $fieldValue): bool {
+        private function isFieldValueValid(string $fieldName, $fieldValue): bool {
             $fields = $this->getFields();
             $supportedFieldNames = array_keys($fields);
 
@@ -89,7 +89,7 @@
             return $items;
         }
 
-        final private function checkFieldList(array $data) {
+        private function checkFieldList(array $data) {
             $fields = $this->getFields();
 
             $supportedFieldNames = array_keys($fields);
