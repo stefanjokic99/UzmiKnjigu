@@ -5,18 +5,18 @@ jQuery(document).ready(function($) {
     $(document).ready(function() {
             if ($(window).width() < 769) {
                 $(`<button id="nav-cart" class="navbar-toggler" type="button">
-                  <img src="Assets/img/ShoppingCartNav.png"/>
-                  <span id="number-of-items">10</span>
+                  <a href="${BASE}cart"><img src="${BASE}assets/img/ShoppingCartNav.png"/></a>
+                  <span id="number-of-items">${number}</span>
                 </button>`).appendTo($("nav>div").first());
             };
             if ($(window).width() > 769) {
                 $(`<div id="cart">
-                    <a  href="#">
-                      <img src="Assets/img/ShoppingCartPC.png" />
+                    <a  href="${BASE}cart">
+                      <img src="${BASE}assets/img/ShoppingCartPC.png" />
                     </a>
                     <div>
-                      <div><span id="number-of-items">3</span> stavke</div>
-                      <div id="price-of-items">450.00 KM</div>
+                      <div><span id="number-of-items">${number}</span></div>
+                      <div id="price-of-items">${price}</div>
                     </div>
                 </div>`).appendTo($("div").first());
             };
@@ -28,8 +28,8 @@ jQuery(document).ready(function($) {
             }
             if($("#nav-cart").length === 0) {
                 $(`<button id="nav-cart" class="navbar-toggler" type="button">
-                  <img src="Assets/img/ShoppingCartNav.png"/>
-                  <span id="number-of-items">10</span>
+                  <a href="${BASE}cart"><img src="Assets/img/ShoppingCartNav.png"/></a>
+                  <span id="number-of-items">${number}</span>
                 </button>`).appendTo($("nav>div").first());
             }
         };
@@ -39,12 +39,12 @@ jQuery(document).ready(function($) {
             }
             if($("#cart").length === 0) {
                 $(`<div id="cart">
-                  <a  href="#">
+                  <a  href="${BASE}cart">
                     <img src="Assets/img/ShoppingCartPC.png" />
                   </a>
                   <div>
-                    <div><span id="number-of-items">3</span> stavke</div>
-                    <div class="bookmark-price"><span id="price-of-items">450.00</span> KM</div>
+                    <div><span id="number-of-items">${number}</span> stavke</div>
+                    <div id="price-of-items">${price}<span id="price-of-items"></span>.00 KM</div>
                   </div>
                 </div>`).appendTo($("div").first());
             }

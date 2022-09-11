@@ -1,6 +1,6 @@
 /**
-* skripta za izlistavanje knjiga i upucivanje asinhronih zahtjeva
-*/
+ * skripta za izlistavanje knjiga i upucivanje asinhronih zahtjeva
+ */
 window.addEventListener('load',main);
 
 var next = document.getElementById('next');
@@ -33,17 +33,8 @@ previous.addEventListener('click', () => {
 
 /* funkcija koja upucuje asinhroni zahtjev */
 function main() {
-    let url = 'api/books/' + numberOfPage;
-
-    fetch(url ,{method:'GET', headers:{'Content-Type':'application/json'}})
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        generateBookList(data["books"]);
-    })
-    .catch(error => {
-        document.getElementById("bookList").innerHTML='Doslo je do greske.';
-    })
+    console.log(books);
+    generateBookList(books.slice((10*(numberOfPage-1)), (10*numberOfPage)));
 }
 
 /* generisanje html a na osnovu liste knjiga */
@@ -56,7 +47,7 @@ function generateBookList(list) {
                 `<div class="col">
                 <div class="card h-100 shadow-sm"> <img src="/assets/uploads/${book[0].image}" class="card-img-top" loading="lazy" alt="...">
                     <div class="card-body">
-                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">${book[0].category}</span> <span class="float-end price-hp">${book[0].price} KM</span> </div>
+                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">${book[0].category}</span> <span class="float-end price-hp">${book[0].price} $</span> </div>
                         <h5 class="card-title">${book[0].title}</h5>
                         <div class="text-center my-4"> <a href="/book/${book[0].id}" class="btn btn-warning">Detaljnije</a> </div>
                     </div>

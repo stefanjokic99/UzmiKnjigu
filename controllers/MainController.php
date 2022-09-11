@@ -3,19 +3,29 @@ namespace App\Controllers;
 use App\Core\Controller;
 
 class MainController extends Controller {
-    public function home() {
+    public function home()
+    {
         $userId = $this->getSession()->get('user_id');
         $userForename = $this->getSession()->get('user_forename');
         $userSurname = $this->getSession()->get('user_surname');
+        $role = $this->getSession()->get('role');
 
         if ($userId !== null) {
             $this->set('userId', $userId);
             $this->set('userForename', $userForename);
             $this->set('userSurname', $userSurname);
+            $this->set('role', $role);
         }
+
+        if ($role == 1)
+            $this->redirect(\Configuration::BASE . 'admin/');
     }
 
-    public function getRegister() { }
+    public function getRegister() {
+        if ($this->getSession()->get('user_id')) {
+            $this->redirect(\Configuration::BASE);
+        }
+    }
     public function postRegister() {
         $forename  = \filter_input(INPUT_POST, 'forename', FILTER_SANITIZE_STRING);
         $surname   = \filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING);
@@ -50,10 +60,10 @@ class MainController extends Controller {
 
         $userId = $userModel->add([
             'email'         => $email,
-            'first_name'      => $forename,
-            'last_name'       => $surname,
-            'password' => $passwordHash,
-            'user_type' => 2
+            'first_name'    => $forename,
+            'last_name'     => $surname,
+            'password'      => $passwordHash,
+            'user_type'     => 2
         ]);
 
         if (!$userId) {
@@ -68,6 +78,9 @@ class MainController extends Controller {
     }
 
     public function getLogin() {
+        if ($this->getSession()->get('user_id')) {
+            $this->redirect(\Configuration::BASE);
+        }
         $message = $this->getSession()->get('message_successfull');
         if ($message !== null) {
             $this->set('messageSuccessfull', $message);
@@ -115,7 +128,11 @@ class MainController extends Controller {
         $this->getSession()->put('user_id', $user->user_id);
         $this->getSession()->put('user_forename', $user->first_name);
         $this->getSession()->put('user_surname', $user->last_name);
+        $this->getSession()->put('role', $user->user_type);
         $this->getSession()->save();
+
+        if ($user->user_type == 1)
+            $this->redirect(\Configuration::BASE . 'admin/');
 
         $this->redirect(\Configuration::BASE);
     }
@@ -123,6 +140,7 @@ class MainController extends Controller {
         $this->getSession()->remove('user_id');
         $this->getSession()->remove('user_forename');
         $this->getSession()->remove('user_surname');
+        $this->getSession()->remove('role');
         $this->getSession()->save();
         $this->redirect(\Configuration::BASE);
     }

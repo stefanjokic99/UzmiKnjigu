@@ -79,7 +79,7 @@ html, body {
     border-bottom: 2px solid #cccccc;
     float:none;
 }
-.reg-text a{
+.reg-text > a{
     text-decoration: none;
     padding-right: 5px;
     color: blue;
@@ -236,7 +236,7 @@ main {
 }
 
 footer {
-    margin-top: 1.5rem;
+    margin-top: 5%;
     color: blue;
     border-top: 2px solid #cccccc;
     background-color: rgba(204, 204, 204, 0.1);
@@ -316,7 +316,7 @@ input[type="radio"]:checked + label {
 #sidebar {
     position: static;
     float: left;
-    height: 85vh;
+    height: 100%;
 }
 
 /* Bootstrap 4 Form*/
@@ -381,11 +381,6 @@ input[type=password]::-ms-clear {
         margin-top: 0px;
     }
 
-    /*
-    footer {
-        margin-top: 30%;
-    }
-    */
 }
 
 /* Mobile S */

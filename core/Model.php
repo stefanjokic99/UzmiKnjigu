@@ -16,7 +16,7 @@
             return $this->dbc->getConnection();
         }
 
-        final private function getTableName(): string {
+        private function getTableName(): string {
             $matches = [];
             preg_match('|^.*\\\((?:[A-Z][a-z]+)+)Model$|', static::class, $matches);
             return substr(strtolower(preg_replace('|[A-Z]|', '_$0', $matches[1] ?? '')), 1);
@@ -46,7 +46,7 @@
             return $items;
         }
 
-        final private function isFieldValueValid(string $fieldName, $fieldValue): bool {
+        private function isFieldValueValid(string $fieldName, $fieldValue): bool {
             $fields = $this->getFields();
             $supportedFieldNames = array_keys($fields);
 
@@ -89,7 +89,7 @@
             return $items;
         }
 
-        final private function checkFieldList(array $data) {
+        private function checkFieldList(array $data) {
             $fields = $this->getFields();
 
             $supportedFieldNames = array_keys($fields);
@@ -155,5 +155,17 @@
             $sql = 'DELETE FROM ' . $tableName . ' WHERE ' . $tableName . '_id = ?;';
             $prep = $this->dbc->getConnection()->prepare($sql);
             return $prep->execute([$id]);
+        }
+
+        final public function getCertainRows(int $limit, int $offset): array {
+            $tableName = $this->getTableName();
+            $sql = 'SELECT * FROM ' . $tableName . ' LIMIT '. $limit .' OFFSET '. $offset .';';
+            $prep = $this->dbc->getConnection()->prepare($sql);
+            $res = $prep->execute();
+            $items = [];
+            if ($res) {
+                $items = $prep->fetchAll(\PDO::FETCH_OBJ);
+            }
+            return $items;
         }
     }

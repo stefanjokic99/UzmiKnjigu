@@ -12,7 +12,7 @@ class ImageModel extends Model
     {
         return [
             'image_id'  =>new Field(new NumberValidator(), false),
-            'book_id'   =>new Field(new NumberValidator(),false),
+            'book_id'   =>new Field(new NumberValidator(),true),
             'image_url' =>new Field((new StringValidator())->setMaxLength(45))
         ];
     }
@@ -20,5 +20,10 @@ class ImageModel extends Model
     public function getAllByImageId(int $imageId): array
     {
         return $this->getAllByFieldName('image_id', $imageId);
+    }
+
+    public function getAllBookId(int $bookId): array
+    {
+        return $this->getAllByFieldName('book_id', $bookId);
     }
 }
