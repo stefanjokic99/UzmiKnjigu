@@ -236,7 +236,7 @@ main {
 }
 
 footer {
-    margin-top: 1.5rem;
+    margin-top: 5%;
     color: blue;
     border-top: 2px solid #cccccc;
     background-color: rgba(204, 204, 204, 0.1);
@@ -381,11 +381,6 @@ input[type=password]::-ms-clear {
         margin-top: 0px;
     }
 
-    /*
-    footer {
-        margin-top: 30%;
-    }
-    */
 }
 
 /* Mobile S */

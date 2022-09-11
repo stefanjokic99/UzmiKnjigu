@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{{ BASE }}assets/css/article.css" />
 {% endblock %}
 
+{% block js %}
+<script src="{{BASE}}assets/js/addToCart.js"></script>
+{% endblock %}
+
 {% block embedded_js %}
 $(document).ready(function() {
 $('#navbarMain > ul > li:nth-child(1) > a').addClass('active');
@@ -86,12 +90,11 @@ $('#navbarMain > ul > li:nth-child(1) > a').addClass('active');
           </div>
           
           <div class="col-md-3 col-sm-12 col-xs-12">
-            <button type="submit" class="btn btn-lg btn-signup" id="add">Dodaj u korpu</button>
+            <button type="submit" class="btn btn-lg btn-signup" id="addToCart" onclick="addBookmark({{book.id}})">Dodaj u korpu</button>
           </div>
       </div>
   </main>
 {% endblock %}
 {% block specific_scripts %}
 <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.0/dist/index.bundle.min.js"></script>
-
 {% endblock %}
