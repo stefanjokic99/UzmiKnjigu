@@ -12,7 +12,7 @@ class TitleModel extends Model
     {
         return [
             'title_id'      =>new Field(new NumberValidator(), false),
-            'category_id'   =>new Field(new NumberValidator(), false),
+            'category_id'   =>new Field(new NumberValidator()),
             'title_name'    =>new Field(new StringValidator()),
             'school_class'  =>new Field(new StringValidator()),
 
