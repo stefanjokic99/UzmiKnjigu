@@ -11,6 +11,8 @@
 
         <!-- Global script -->
         <script type="text/javascript" src="{{ BASE }}assets/libs/jquery/dist/jquery.min.js"></script>
+        {% block js %}
+        {% endblock %}
         <script type="text/javascript">
             {% block embedded_js %}{% endblock %}
         </script>
