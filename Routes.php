@@ -18,12 +18,12 @@
         App\Core\Route::post('|^api/title/add/$|',                  'ApiTitle',               'add'),
 
         # User role routes:
-        App\Core\Route::get('|^user/profile/?$|',                   'UserDashboard',           'index'),
-        App\Core\Route::get('|^user/addBook/?$|',                   'UserBook',                'getAddBook'),
-        App\Core\Route::post('|^user/addBook/?$|',                  'UserBook',                'postAddBook'),
+        App\Core\Route::get('|^user/profile/?$|',                   'UserDashboard',          'index'),
+        App\Core\Route::get('|^user/addBook/?$|',                   'UserBook',               'getAddBook'),
+        App\Core\Route::post('|^user/addBook/?$|',                  'UserBook',               'postAddBook'),
 
         # Admin role routes:
-        App\Core\Route::get('|^admin/?$|',                           'AdminDashboard',          'index'),
+        App\Core\Route::get('|^admin/?$|',                          'AdminDashboard',         'index'),
 
         App\Core\Route::any('|^.*$|',                               'Main',                   'home')
     ];
