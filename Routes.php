@@ -15,17 +15,15 @@
         App\Core\Route::get('|^api/bookmarks/?$|',                  'ApiBookmark',            'getBookmarks'),
         App\Core\Route::get('|^api/bookmarks/add/([0-9]+)/?$|',     'ApiBookmark',            'addBookmark'),
         App\Core\Route::get('|^api/bookmarks/clear/?$|',            'ApiBookmark',            'clear'),
+        App\Core\Route::post('|^api/title/add/$|',                  'ApiTitle',               'add'),
 
         # User role routes:
-        App\Core\Route::get('|^user/profile/?$|',                   'UserDashboard',           'index'),
-        App\Core\Route::get('|^user/addBook/?$|',                   'UserBook',                'getAddBook'),
-        App\Core\Route::post('|^user/addBook/?$|',                  'UserBook',                'postAddBook'),
+        App\Core\Route::get('|^user/profile/?$|',                   'UserDashboard',          'index'),
+        App\Core\Route::get('|^user/addBook/?$|',                   'UserBook',               'getAddBook'),
+        App\Core\Route::post('|^user/addBook/?$|',                  'UserBook',               'postAddBook'),
 
-        App\Core\Route::get('|^user/categories/?$|',                'UserCategoryManagement', 'categories'),
-        App\Core\Route::get('|^user/categories/edit/([0-9]+)/?$|',  'UserCategoryManagement', 'getEdit'),
-        App\Core\Route::post('|^user/categories/edit/([0-9]+)/?$|', 'UserCategoryManagement', 'postEdit'),
-        App\Core\Route::get('|^user/categories/add/?$|',            'UserCategoryManagement', 'getAdd'),
-        App\Core\Route::post('|^user/categories/add/?$|',           'UserCategoryManagement', 'postAdd'),
+        # Admin role routes:
+        App\Core\Route::get('|^admin/?$|',                          'AdminDashboard',         'index'),
 
         App\Core\Route::any('|^.*$|',                               'Main',                   'home')
     ];
