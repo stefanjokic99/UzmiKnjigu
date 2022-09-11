@@ -24,15 +24,14 @@ class ApiBookController extends \App\Core\ApiController
             $categoryName = ($category)->category_name;
 
             $bookApi = [
+                "id"        => $book->book_id,
                 "price"     => $price,
                 "image"     => $image,
                 "title"     => $titleName,
-                "id"        => $book->book_id,
                 "category"  => $categoryName
             ];
 
             $booksApi[] = array($bookApi);
-
         }
 
         $this->set('books',$booksApi);

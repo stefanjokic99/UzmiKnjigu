@@ -316,7 +316,7 @@ input[type="radio"]:checked + label {
 #sidebar {
     position: static;
     float: left;
-    height: 85vh;
+    height: 100%;
 }
 
 /* Bootstrap 4 Form*/

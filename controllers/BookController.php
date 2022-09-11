@@ -56,4 +56,55 @@ class BookController extends Controller {
         $this->set('book',$bookData);
 
     }
+
+    private function normaliseKeywords(string $keywords): string {
+        $keywords = trim($keywords);
+        $keywords = preg_replace('/ +/', ' ', $keywords);
+        # ...
+        return $keywords;
+    }
+
+    public function postSearch() {
+        $bookModel = new \App\Models\BookModel($this->getDatabaseConnection());
+        $titleModel = new \App\Models\TitleModel($this->getDatabaseConnection());
+        $imageModel = new \App\Models\ImageModel($this->getDatabaseConnection());
+        $categoryModel = new \App\Models\CategoryModel($this->getDatabaseConnection());
+
+        $q = filter_input(INPUT_POST, 'q', FILTER_SANITIZE_STRING);
+        $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
+        $state = filter_input(INPUT_POST, 'state', FILTER_SANITIZE_STRING);
+
+        $price = filter_input(INPUT_POST, 'price', FILTER_SANITIZE_STRING);
+
+        $keywords = $this->normaliseKeywords($q);
+        $books = $bookModel->getAllBySearch($keywords, intval($category), intval($state), floatval($price));
+
+        foreach($books as $book) {
+            if($book->status_id = 1) {
+                $price = $book->price;
+                $title = ($titleModel)->getById($book->title_id);
+                $titleName = ($title)->title_name;
+                $images = ($imageModel)->getByFieldName('book_id', $book->book_id);
+                $image = "";
+                if ($images) {
+                    $image = $images->image_url;
+                }
+
+                $category = ($categoryModel)->getById($title->category_id);
+                $categoryName = ($category)->category_name;
+
+                $bookData = [
+                    "id" => $book->book_id,
+                    "price" => $price,
+                    "image" => $image,
+                    "title" => $titleName,
+                    "category" => $categoryName
+                ];
+
+                $booksData[] = array($bookData);
+            }
+        }
+
+        $this->set('books',$booksData);
+    }
 }

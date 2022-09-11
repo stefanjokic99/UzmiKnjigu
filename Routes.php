@@ -6,8 +6,8 @@
         App\Core\Route::post('|^user/login/?$|',                    'Main',                   'postLogin'),
         App\Core\Route::get('|^user/logout/?$|',                    'Main',                   'getLogout'),
         App\Core\Route::get('|^book/([0-9]+)/?$|',                  'Book',                   'show'),
+        App\Core\Route::post('|^search/?$|',                        'Book',                   'postSearch'),
         App\Core\Route::get('|^cart/?$|',                           'Cart',                   'show'),
-
 
         # API rute:
         App\Core\Route::get('|^api/title/([0-9]+)/?$|',             'ApiTitle',               'getTitleByCategoryId'),
